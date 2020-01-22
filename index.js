@@ -86,6 +86,9 @@ p.play = function(file) {
 p.pause = function() {
 	return this._cmd('P');
 }
+p.quit = function() {
+	return this._cmd('Q');
+}
 p.stop = function() {
 	return this._cmd('S');
 }
