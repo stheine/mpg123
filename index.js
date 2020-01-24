@@ -30,6 +30,8 @@ function MpgPlayer(device, noFrames) {
 	
 	this.child = cp.spawn('mpg123', args); this.stream = this.child.stdin;
 	if(noFrames) this._cmd('SILENCE');
+
+        this.child.on('exit', (code, signal) => self.emit('close', code, signal));
 	
 	this.child.stdout.pipe(es.split()).pipe(through(function(data) {
 		var line = data.split(' '), type = line.shift();
