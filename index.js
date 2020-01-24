@@ -111,7 +111,7 @@ p.getProgress = function(callback) {
 	return this._cmd('SAMPLE');
 }
 p.close = function() {
-	this.child.kill();
+	this.child.kill('SIGINT');
 }
 
 if(!module.parent) {
