@@ -26,7 +26,7 @@ exports.getDevices = function(callback) {
 
 function MpgPlayer(device, noFrames) {
 	var self = this, args = ['-R'];
-	if(typeof device == 'object') args.push('-a'+device.address);
+	if(device && typeof device === 'object') args.push('-a'+device.address);
 	
 	this.child = cp.spawn('mpg123', args); this.stream = this.child.stdin;
 	if(noFrames) this._cmd('SILENCE');
