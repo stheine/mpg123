@@ -5,22 +5,23 @@ inherits(MpgPlayer, EventEmitter);
 exports.MpgPlayer = MpgPlayer;
 
 exports.getDevices = function(callback) {
-	execCmd('aplay -L', function(raw) {
-		var lines = raw.split('\n'), devices = [];
-		for(var i=0,l=lines.length; i<l; i++) {
-			var line = lines[i]; if(line[0] == 'h' && line[1] == 'w' && line[2] == ':') {
-				var name = lines[i+1]; if(name) {
-					name = name.substring(0,name.indexOf(',')).trim();
-					devices.push({name:name,address:line});
-				}
-			}
-		}
-		devices.get = function(n) {
-			for(var i=0,l=this.length; i<l; i++) if(this[i].name == n) return this[i];
-			return null;
-		};
-		callback(devices);
-	});
+  try {
+    return cp.execSync('cat /proc/asound/pcm')
+      .toString()
+      .split('\n')
+      .reduce((acc, line) => {
+        const [rawAddress, name] = line.split(': ');
+        const addr =
+          rawAddress &&
+          rawAddress
+            .split('-')
+            .map(i => parseInt(i))
+            .join(',');
+        return addr ? [...acc, { address: `hw:${addr}`, name: `${name} [${addr}]` }] : acc;
+      }, []);
+  } catch {
+    return [];
+  }
 }
 
 function MpgPlayer(device, noFrames) {
