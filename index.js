@@ -110,7 +110,7 @@ p.close = function() {
 	this.child.kill();
 }
 
-if(!module.parent) {
+if(require && require.main === module) {
 	new MpgPlayer().play(process.argv[2]);
 }
 
