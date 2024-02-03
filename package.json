@@ -1,16 +1,19 @@
 {
-  "name": "mpg123",
-  "version": "0.2.3",
-  "homepage": "https://github.com/dominictarr/mpg123",
+  "name": "@stheine/mpg123",
+  "version": "0.2.4",
+  "homepage": "https://github.com/stheine/mpg123",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dominictarr/mpg123.git"
+    "url": "git://github.com/stheine/mpg123.git"
   },
   "dependencies": {
     "event-stream": "~3.0.4",
     "through": "~1.1.0"
   },
   "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
-  "contributors": ["Jacob Bigenwald <jrb467@cornell.edu>"],
+  "contributors": [
+    "Jacob Bigenwald <jrb467@cornell.edu>",
+    "Stefan Heine <stheine@arcor.de>"
+  ],
   "license": "MIT"
 }
