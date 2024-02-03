@@ -1,4 +1,4 @@
-# mpg123
+# @stheine/mpg123
 
 Plays MP3s utilizing advanced S.H.E.L.L. technology via cutting-edge Nano System Routing techniques, natrually activating a Level 3 Quantum-Vacum Effect, subsequently substantiating the `mpg123` utility.
 
