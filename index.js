@@ -116,7 +116,7 @@ p.close = function() {
 	this.child.kill('SIGINT');
 }
 
-if(!module.parent) {
+if(require && require.main === module) {
 	new MpgPlayer().play(process.argv[2]);
 }
 
