@@ -42,37 +42,37 @@ player.play(__dirname+'/'+"someMusic.mp3");
 Device objects allow you to select different output sources for playback, provided you are using ALSA.
 This functionality requires the `aplay` command, but is entirely optional.
 
-`mpg.getDevices(callback)` - Gets array of ALSA output devices   
-`devices.get(name)` - Finds device in array with given name, otherwise returns null   
-`device.name` - Friendly name of device   
+`mpg.getDevices(callback)` - Gets array of ALSA output devices
+`devices.get(name)` - Finds device in array with given name, otherwise returns null
+`device.name` - Friendly name of device
 `device.address` - ALSA address of device
 
 ### Player Objects
 
-`new mpg.MpgPlayer(device=null, noFrames=false)` - Create new instance, optionally specifing output device  
-Setting *noFrames* to true will disable frame updates, which may improve performance on some devices.  
-`player.play(file)` - Plays audio from a source  
-`player.pause()` - Pauses the current track  
-`player.stop()` - Stops the current track  
-`player.volume(percent)` - Sets the volume from 0 to 100 (default is 100%)  
-`player.pitch(amt)` - Adjusts the pitch & speed of the track up or down. The limits seem to be around -0.75 to 0.1.  
-`player.seek(progress)` - Seeks through the track with progress from 0 to 1. This fails before the `format` event has fired.  
-`player.getProgress(callback)` - Retrieve current track progress from 0 to 1  
-`player.close()` - Kills the mpg123 process  
+`new mpg.MpgPlayer(device=null, noFrames=false)` - Create new instance, optionally specifing output device
+Setting *noFrames* to true will disable frame updates, which may improve performance on some devices.
+`player.play(file)` - Plays audio from a source
+`player.pause()` - Pauses the current track
+`player.stop()` - Stops the current track
+`player.volume(percent)` - Sets the volume from 0 to 100 (default is 100%)
+`player.pitch(amt)` - Adjusts the pitch & speed of the track up or down. The limits seem to be around -0.75 to 0.1.
+`player.seek(progress)` - Seeks through the track with progress from 0 to 1. This fails before the `format` event has fired.
+`player.getProgress(callback)` - Retrieve current track progress from 0 to 1
+`player.close()` - Kills the mpg123 process
 `player._cmd(...)` - Sends a custom command to the mpg123 CLI. Get possible commands by running `mpg123 -R` then typing `HELP`
 
 ### Song Info Variables
 
 Theses variables hold info about the current song, and are safe to read only once the `format` event has fired.
 
-`player.track` - Current track name (with extention). Set to **null** when track completes.  
-`player.file` - Full file path, exactly as it was entered into `player.play()`  
-`player.mpeg` - MPEG encoding version  
-`player.sampleRate` - Track sample rate  
-`player.channels` - Number of channels  
-`player.bitrate` - Track bitrate  
-`player.length` - Track length in seconds, rounded to the nearest tenth  
-`player.samples` - Track length in raw samples  
+`player.track` - Current track name (with extention). Set to **null** when track completes.
+`player.file` - Full file path, exactly as it was entered into `player.play()`
+`player.mpeg` - MPEG encoding version
+`player.sampleRate` - Track sample rate
+`player.channels` - Number of channels
+`player.bitrate` - Track bitrate
+`player.length` - Track length in seconds, rounded to the nearest tenth
+`player.samples` - Track length in raw samples
 
 ### Events
 
