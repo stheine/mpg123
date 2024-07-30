@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git://github.com/stheine/mpg123.git"
   },
+  "scripts": {
+    "publish": "npm publish --access public"
+  },
   "dependencies": {
     "event-stream": "~3.0.4",
     "through": "~1.1.0"
