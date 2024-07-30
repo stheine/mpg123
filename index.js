@@ -116,10 +116,6 @@ p.close = function() {
 	this.child.kill('SIGINT');
 }
 
-if(!module.parent) {
-	new MpgPlayer().play(process.argv[2]);
-}
-
 function execCmd(cmd, callback) {
 	cp.exec(cmd, function (err, out, stderr) {
 		if(err) { console.log("Command Exec Erorr: ",err); return; }
